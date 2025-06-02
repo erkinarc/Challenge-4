@@ -8,7 +8,7 @@ public class PlayerControllerX : MonoBehaviour
     private float speed = 500;
     private GameObject focalPoint;
 
-    public bool hasPowerup;
+    public bool hasPowerup = false;
     public GameObject powerupIndicator;
     public int powerUpDuration = 5;
 
@@ -40,6 +40,7 @@ public class PlayerControllerX : MonoBehaviour
             Destroy(other.gameObject);
             hasPowerup = true;
             powerupIndicator.SetActive(true);
+            StartCoroutine(PowerupCooldown()); // start powerup cooldown coroutine
         }
     }
 
